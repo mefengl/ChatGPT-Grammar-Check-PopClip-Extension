@@ -19,6 +19,12 @@
       "label": "API Key",
       "type": "string",
       "description": "Obtain an API key from: https://platform.openai.com/account/api-keys"
+    },
+    {
+      "identifier": "apibase",
+      "label": "API Base URL",
+      "type": "string",
+      "description": "Custom API base URL (optional). Leave empty to use default: https://api.openai.com/v1"
     }
   ]
 }

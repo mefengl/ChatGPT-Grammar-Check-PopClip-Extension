@@ -5,7 +5,7 @@ const axios_1 = require("axios");
 
 const checkGrammar = async (input, options) => {
   const openai = axios_1.default.create({
-    baseURL: "https://api.openai.com/v1",
+    baseURL: options.apibase || "https://api.openai.com/v1",
     headers: { Authorization: `Bearer ${options.apikey}` },
   });
   const prompt = "Please correct the grammar and polish the following sentences, do not provide any translation, comments, or notes, and use the same language as input:\n\n";
@@ -13,7 +13,7 @@ const checkGrammar = async (input, options) => {
   const { data } = await openai.post("chat/completions", {
     model: "gpt-3.5-turbo",
     messages: [
-      { role: "system", content: prompt }, 
+      { role: "system", content: prompt },
       { role: "user", content: input.text }
     ],
   });
